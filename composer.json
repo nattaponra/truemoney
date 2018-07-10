@@ -1,0 +1,14 @@
+{
+    "name": "nattaponra/truemoney",
+    "authors": [
+        {
+            "name": "Nattapon Rakthong",
+            "email": "nattapon.rakthong@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"nattaponra\\truemoney\\": "src/"}
+    },
+    "require": {}
+
+}
