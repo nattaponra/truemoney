@@ -38,11 +38,26 @@ class TMPay extends  Service implements ServiceInterface  {
 
         if(strpos($curl_content,'SUCCEED') !== FALSE)
         {
-            return true;
+            $content = explode("|",$curl_content);
+            return [
+                'status'         => true,
+                'message'        => $content[0],
+                'content'        => $content[1]
+            ];
 
-        }  else
-        {
-            return false;
+        }else if(strpos($curl_content,'|') !== FALSE){
+            $content = explode("|",$curl_content);
+            return [
+                'status'         => false,
+                'message'        => $content[0],
+                'content'        => $content[1]
+            ];
+        }else{
+            return [
+                'status'         => false,
+                'message'        => "Do not connect service",
+                'content'        => ""
+            ];
         }
     }
 
